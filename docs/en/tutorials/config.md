@@ -26,9 +26,9 @@ When submitting jobs using "tools/train.py" or "tools/test.py", you may specify 
 
 ## Config File Structure
 
-There are 4 basic component types under `config/_base_`, dataset, model, schedule, default_runtime.
+There are 4 basic component types under `config/_base_`, dataset, model, schedule, default*runtime.
 Many methods could be easily constructed with one of each like Faster R-CNN, Mask R-CNN, Cascade R-CNN, RPN, SSD.
-The configs that are composed by components from `_base_` are called _primitive_.
+The configs that are composed by components from `\_base*` are called _primitive_.
 
 For all configs under the same folder, it is recommended to have only **one** _primitive_ config. All other configs should inherit from the _primitive_ config. In this way, the maximum of inheritance level is 3.
 
@@ -151,7 +151,7 @@ model = dict(
             in_channels=256,  # Input channels for bbox head. This is consistent with the out_channels in roi_extractor
             fc_out_channels=1024,  # Output feature channels of FC layers.
             roi_feat_size=7,  # Size of RoI features
-            num_classes=80,  # Number of classes for classification
+            num_classes=1,  # Number of classes for classification
             bbox_coder=dict(  # Box coder used in the second stage.
                 type='DeltaXYWHBBoxCoder',  # Type of box coder. 'DeltaXYWHBBoxCoder' is applied for most of methods.
                 target_means=[0.0, 0.0, 0.0, 0.0],  # Means used to encode and decode box
@@ -177,7 +177,7 @@ model = dict(
             num_convs=4,  # Number of convolutional layers in mask head.
             in_channels=256,  # Input channels, should be consistent with the output channels of mask roi extractor.
             conv_out_channels=256,  # Output channels of the convolutional layer.
-            num_classes=80,  # Number of class to be segmented.
+            num_classes=1,  # Number of class to be segmented.
             loss_mask=dict(  # Config of loss function for the mask branch.
                 type='CrossEntropyLoss',  # Type of loss used for segmentation
                 use_mask=True,  # Whether to only train the mask in the correct class.

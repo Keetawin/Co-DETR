@@ -33,7 +33,7 @@ def test_tood_head_loss():
             max_per_img=100))
     # since Focal Loss is not supported on CPU
     self = TOODHead(
-        num_classes=80,
+        num_classes=1,
         in_channels=1,
         stacked_convs=6,
         feat_channels=256,

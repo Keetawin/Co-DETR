@@ -45,7 +45,7 @@ class DynamicMaskHead(FCNMaskHead):
                  in_channels=256,
                  conv_kernel_size=3,
                  conv_out_channels=256,
-                 num_classes=80,
+                 num_classes=1,
                  class_agnostic=False,
                  upsample_cfg=dict(type='deconv', scale_factor=2),
                  conv_cfg=None,

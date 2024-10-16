@@ -14,7 +14,7 @@ def test_mask_head_loss():
         roi_feat_size=6,
         in_channels=8,
         conv_out_channels=8,
-        num_classes=8)
+        num_classes=1)
 
     # Dummy proposals
     proposal_list = [
@@ -58,7 +58,7 @@ def test_mask_head_loss():
         in_channels=8,
         conv_out_channels=8,
         fc_out_channels=8,
-        num_classes=8)
+        num_classes=1)
 
     pos_mask_pred = mask_pred[range(mask_pred.size(0)), pos_labels]
     mask_iou_pred = mask_iou_head(dummy_feats, pos_mask_pred)
@@ -84,7 +84,7 @@ def test_mask_head_loss():
             act_cfg=dict(type='ReLU', inplace=True),
             norm_cfg=dict(type='LN')),
         num_convs=1,
-        num_classes=8,
+        num_classes=1,
         in_channels=8,
         roi_feat_size=6)
 

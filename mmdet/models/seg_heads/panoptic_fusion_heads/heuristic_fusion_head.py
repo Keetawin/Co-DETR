@@ -11,7 +11,7 @@ class HeuristicFusionHead(BasePanopticFusionHead):
     """Fusion Head with Heuristic method."""
 
     def __init__(self,
-                 num_things_classes=80,
+                 num_things_classes=1,
                  num_stuff_classes=53,
                  test_cfg=None,
                  init_cfg=None,

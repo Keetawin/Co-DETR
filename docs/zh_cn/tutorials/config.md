@@ -41,12 +41,12 @@
 - `{model}`： 模型种类，例如 `faster_rcnn`, `mask_rcnn` 等。
 - `[model setting]`： 特定的模型，例如 `htc` 中的`without_semantic`， `reppoints` 中的 `moment` 等。
 - `{backbone}`： 主干网络种类例如 `r50` (ResNet-50), `x101` (ResNeXt-101) 等。
-- `{neck}`：  Neck 模型的种类包括 `fpn`, `pafpn`, `nasfpn`, `c4 ` 等。
+- `{neck}`： Neck 模型的种类包括 `fpn`, `pafpn`, `nasfpn`, `c4 ` 等。
 - `[norm_setting]`： 默认使用 `bn` (Batch Normalization)，其他指定可以有 `gn` (Group Normalization)， `syncbn` (Synchronized Batch Normalization) 等。
   `gn-head`/`gn-neck` 表示 GN 仅应用于网络的 Head 或 Neck， `gn-all` 表示 GN 用于整个模型， 例如主干网络、Neck 和 Head。
 - `[misc]`： 模型中各式各样的设置/插件，例如 `dconv`、 `gcb`、 `attention`、`albu`、 `mstrain` 等。
 - `[gpu x batch_per_gpu]`：GPU 数量和每个 GPU 的样本数，默认使用 `8x2`。
-- `{schedule}`： 训练方案，选项是 `1x`、 `2x`、 `20e` 等。`1x`  和 `2x` 分别代表 12 epoch 和 24 epoch，`20e` 在级联模型中使用，表示 20 epoch。对于 `1x`/`2x`，初始学习率在第 8/16 和第 11/22 epoch 衰减 10 倍；对于 `20e` ，初始学习率在第 16 和第 19 epoch 衰减 10 倍。
+- `{schedule}`： 训练方案，选项是 `1x`、 `2x`、 `20e` 等。`1x` 和 `2x` 分别代表 12 epoch 和 24 epoch，`20e` 在级联模型中使用，表示 20 epoch。对于 `1x`/`2x`，初始学习率在第 8/16 和第 11/22 epoch 衰减 10 倍；对于 `20e` ，初始学习率在第 16 和第 19 epoch 衰减 10 倍。
 - `{dataset}`：数据集，例如 `coco`、 `cityscapes`、 `voc_0712`、 `wider_face` 等。
 
 ## 弃用的 train_cfg/test_cfg
@@ -134,7 +134,7 @@ model = dict(
             in_channels=256,  # bbox head 的输入通道。 这与 roi_extractor 中的 out_channels 一致。
             fc_out_channels=1024,  # FC 层的输出特征通道。
             roi_feat_size=7,  # 候选区域(Region of Interest)特征的大小。
-            num_classes=80,  # 分类的类别数量。
+            num_classes=1,  # 分类的类别数量。
             bbox_coder=dict(  # 第二阶段使用的框编码器。
                 type='DeltaXYWHBBoxCoder',  # 框编码器的类别，大多数情况使用 'DeltaXYWHBBoxCoder'。
                 target_means=[0.0, 0.0, 0.0, 0.0],  # 用于编码和解码框的均值
@@ -160,7 +160,7 @@ model = dict(
             num_convs=4,  # mask head 中的卷积层数
             in_channels=256,  # 输入通道，应与 mask roi extractor 的输出通道一致。
             conv_out_channels=256,  # 卷积层的输出通道。
-            num_classes=80,  # 要分割的类别数。
+            num_classes=1,  # 要分割的类别数。
             loss_mask=dict(  # mask 分支的损失函数配置。
                 type='CrossEntropyLoss',  # 用于分割的损失类型。
                 use_mask=True,  # 是否只在正确的类中训练 mask。
@@ -413,7 +413,7 @@ work_dir = 'work_dir'  # 用于保存当前实验的模型检查点和日志的�
 
 有时，您也许会设置 `_delete_=True` 去忽略基础配置文件里的一些域内容。 您也许可以参照 [mmcv](https://mmcv.readthedocs.io/en/latest/understand_mmcv/config.html#inherit-from-base-config-with-ignored-fields) 来获得一些简单的指导。
 
-在 MMDetection里，例如为了改变  Mask R-CNN 的主干网络的某些内容：
+在 MMDetection 里，例如为了改变 Mask R-CNN 的主干网络的某些内容：
 
 ```python
 model = dict(
@@ -516,7 +516,7 @@ data = dict(
 
 我们首先定义新的 `train_pipeline`/`test_pipeline` 然后传递到 `data` 里。
 
-同样的，如果我们想从 `SyncBN` 切换到 `BN` 或者 `MMSyncBN`，我们需要修改配置文件里的每一个  `norm_cfg`。
+同样的，如果我们想从 `SyncBN` 切换到 `BN` 或者 `MMSyncBN`，我们需要修改配置文件里的每一个 `norm_cfg`。
 
 ```python
 _base_ = './mask_rcnn_r50_fpn_1x_coco.py'

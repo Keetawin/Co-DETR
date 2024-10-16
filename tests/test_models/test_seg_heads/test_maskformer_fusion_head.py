@@ -14,7 +14,7 @@ def test_maskformer_fusion_head():
             'pad_shape': (128, 160, 3)
         },
     ]
-    num_things_classes = 80
+    num_things_classes = 1
     num_stuff_classes = 53
     num_classes = num_things_classes + num_stuff_classes
     config = ConfigDict(

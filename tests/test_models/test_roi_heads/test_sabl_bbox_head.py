@@ -10,7 +10,7 @@ from .utils import _dummy_bbox_sampling
 def test_sabl_bbox_head_loss():
     """Tests bbox head loss when truth is empty and non-empty."""
     self = SABLHead(
-        num_classes=4,
+        num_classes=1,
         cls_in_channels=3,
         reg_in_channels=3,
         cls_out_channels=3,

@@ -12,7 +12,7 @@ from .base_panoptic_fusion_head import BasePanopticFusionHead
 class MaskFormerFusionHead(BasePanopticFusionHead):
 
     def __init__(self,
-                 num_things_classes=80,
+                 num_things_classes=1,
                  num_stuff_classes=53,
                  test_cfg=None,
                  loss_panoptic=None,

@@ -37,7 +37,7 @@ class CenterPrior(nn.Module):
     def __init__(self,
                  force_topk=False,
                  topk=9,
-                 num_classes=80,
+                 num_classes=1,
                  strides=(8, 16, 32, 64, 128)):
         super(CenterPrior, self).__init__()
         self.mean = nn.Parameter(torch.zeros(num_classes, 2))

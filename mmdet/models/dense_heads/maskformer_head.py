@@ -54,7 +54,7 @@ class MaskFormerHead(AnchorFreeHead):
                  in_channels,
                  feat_channels,
                  out_channels,
-                 num_things_classes=80,
+                 num_things_classes=1,
                  num_stuff_classes=53,
                  num_queries=100,
                  pixel_decoder=None,

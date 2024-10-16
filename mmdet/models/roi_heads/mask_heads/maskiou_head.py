@@ -23,7 +23,7 @@ class MaskIoUHead(BaseModule):
                  in_channels=256,
                  conv_out_channels=256,
                  fc_out_channels=1024,
-                 num_classes=80,
+                 num_classes=1,
                  score_use_sigmoid=False,
                  norm_cfg=None,
                  loss_iou=dict(type='MSELoss', loss_weight=0.5),

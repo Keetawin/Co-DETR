@@ -15,7 +15,7 @@ def isr_p(cls_score,
           bbox_coder,
           k=2,
           bias=0,
-          num_class=80):
+          num_class=1):
     """Importance-based Sample Reweighting (ISR_P), positive part.
 
     Args:
@@ -129,7 +129,7 @@ def carl_loss(cls_score,
               bias=0.2,
               avg_factor=None,
               sigmoid=False,
-              num_class=80):
+              num_class=1):
     """Classification-Aware Regression Loss (CARL).
 
     Args:

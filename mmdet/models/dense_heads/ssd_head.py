@@ -48,7 +48,7 @@ class SSDHead(AnchorHead):
     """  # noqa: W605
 
     def __init__(self,
-                 num_classes=80,
+                 num_classes=1,
                  in_channels=(512, 1024, 512, 256, 256, 256),
                  stacked_convs=0,
                  feat_channels=256,

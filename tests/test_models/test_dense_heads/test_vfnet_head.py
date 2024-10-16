@@ -21,7 +21,7 @@ def test_vfnet_head_loss():
             debug=False))
     # since Focal Loss is not supported on CPU
     self = VFNetHead(
-        num_classes=4,
+        num_classes=1,
         in_channels=1,
         train_cfg=train_cfg,
         loss_cls=dict(type='VarifocalLoss', use_sigmoid=True, loss_weight=1.0))

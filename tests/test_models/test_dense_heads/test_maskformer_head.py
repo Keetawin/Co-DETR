@@ -25,7 +25,7 @@ def test_maskformer_head_loss():
         torch.rand((2, 64 * 2**i, 4 * 2**(3 - i), 5 * 2**(3 - i)))
         for i in range(4)
     ]
-    num_things_classes = 80
+    num_things_classes = 1
     num_stuff_classes = 53
     num_classes = num_things_classes + num_stuff_classes
     config = ConfigDict(

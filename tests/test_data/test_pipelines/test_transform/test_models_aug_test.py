@@ -71,30 +71,30 @@ def test_aug_test_size():
 def test_cascade_rcnn_aug_test():
     aug_result = model_aug_test_template(
         'configs/cascade_rcnn/cascade_rcnn_r50_fpn_1x_coco.py')
-    assert len(aug_result[0]) == 80
+    assert len(aug_result[0]) == 1
 
 
 def test_mask_rcnn_aug_test():
     aug_result = model_aug_test_template(
         'configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.py')
     assert len(aug_result[0]) == 2
-    assert len(aug_result[0][0]) == 80
-    assert len(aug_result[0][1]) == 80
+    assert len(aug_result[0][0]) == 1
+    assert len(aug_result[0][1]) == 1
 
 
 def test_htc_aug_test():
     aug_result = model_aug_test_template('configs/htc/htc_r50_fpn_1x_coco.py')
     assert len(aug_result[0]) == 2
-    assert len(aug_result[0][0]) == 80
-    assert len(aug_result[0][1]) == 80
+    assert len(aug_result[0][0]) == 1
+    assert len(aug_result[0][1]) == 1
 
 
 def test_scnet_aug_test():
     aug_result = model_aug_test_template(
         'configs/scnet/scnet_r50_fpn_1x_coco.py')
     assert len(aug_result[0]) == 2
-    assert len(aug_result[0][0]) == 80
-    assert len(aug_result[0][1]) == 80
+    assert len(aug_result[0][0]) == 1
+    assert len(aug_result[0][1]) == 1
 
 
 def test_cornernet_aug_test():

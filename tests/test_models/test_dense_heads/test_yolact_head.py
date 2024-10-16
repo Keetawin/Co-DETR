@@ -29,7 +29,7 @@ def test_yolact_head_loss():
             debug=False,
             min_gt_box_wh=[4.0, 4.0]))
     bbox_head = YOLACTHead(
-        num_classes=80,
+        num_classes=1,
         in_channels=256,
         feat_channels=256,
         anchor_generator=dict(
@@ -57,11 +57,11 @@ def test_yolact_head_loss():
         train_cfg=train_cfg)
     segm_head = YOLACTSegmHead(
         in_channels=256,
-        num_classes=80,
+        num_classes=1,
         loss_segm=dict(
             type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0))
     mask_head = YOLACTProtonet(
-        num_classes=80,
+        num_classes=1,
         in_channels=256,
         num_protos=32,
         max_masks_to_train=100,

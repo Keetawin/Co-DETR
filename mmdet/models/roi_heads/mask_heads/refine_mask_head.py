@@ -54,7 +54,7 @@ class SFMStage(nn.Module):
                  fusion_type='MultiBranchFusion',
                  dilations=[1, 3, 5],
                  out_size=14,
-                 num_classes=80,
+                 num_classes=1,
                  semantic_out_stride=4,
                  mask_use_sigmoid=False,
                  upsample_cfg=dict(type='bilinear', scale_factor=2)):
@@ -153,7 +153,7 @@ class RefineMaskHead(nn.Module):
                  dilations=[1, 3, 5],
                  semantic_out_stride=4,
                  mask_use_sigmoid=False,
-                 stage_num_classes=[80, 80, 80, 80],
+                 stage_num_classes=[1, 1, 1, 1],
                  stage_sup_size=[14, 28, 56, 112],
                  upsample_cfg=dict(type='bilinear', scale_factor=2),
                  loss_cfg=dict(
@@ -382,7 +382,7 @@ class SimpleSFMStage(nn.Module):
                  fusion_type='MultiBranchFusion',
                  dilations=[1, 3, 5],
                  out_size=14,
-                 num_classes=80,
+                 num_classes=1,
                  semantic_out_stride=4,
                  upsample_cfg=dict(type='bilinear', scale_factor=2)):
         super(SimpleSFMStage, self).__init__()
@@ -455,7 +455,7 @@ class SimpleRefineMaskHead(nn.Module):
                  fusion_type='MultiBranchFusionAvg',
                  dilations=[1, 3, 5],
                  semantic_out_stride=4,
-                 stage_num_classes=[80, 80, 80, 80],
+                 stage_num_classes=[1, 1, 1, 1],
                  stage_sup_size=[14, 28, 56, 112],
                  pre_upsample_last_stage=False,  # if True, upsample features and then compute logits
                  upsample_cfg=dict(type='bilinear', scale_factor=2),

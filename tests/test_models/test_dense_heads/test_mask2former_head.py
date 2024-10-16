@@ -107,7 +107,7 @@ def test_mask2former_head_loss(num_stuff_classes, label_num):
 
 def _init_model(num_stuff_classes):
     base_channels = 64
-    num_things_classes = 80
+    num_things_classes = 1
     num_classes = num_things_classes + num_stuff_classes
     config = ConfigDict(
         dict(
