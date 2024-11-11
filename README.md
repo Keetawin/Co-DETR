@@ -7,10 +7,11 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/detrs-with-collaborative-hybrid-assignments/instance-segmentation-on-lvis-v1-0-val)](https://paperswithcode.com/sota/instance-segmentation-on-lvis-v1-0-val?p=detrs-with-collaborative-hybrid-assignments)
 
 
-[[📖 Paper](https://arxiv.org/pdf/2211.12860.pdf)] [[🤗 Huggingface Model](https://huggingface.co/zongzhuofan)]
+[[📖 Paper](https://arxiv.org/pdf/2211.12860.pdf)] [[🤗 Hugging Face Model](https://huggingface.co/zongzhuofan)]
 
 ## News
 
+* ***[07/21/2024]*** Check out our Co-DETR detection and segmentation checkpoints, fine-tuned on COCO and LVIS, now available on [Hugging Face](https://huggingface.co/zongzhuofan). We've achieved new state-of-the-art performance in instance segmentation!
 * ***[04/22/2024]*** We release a new MLLM framework [MoVA](https://github.com/TempleX98/MoVA), which adopts Co-DETR as the vision and achieves state-of-the-art performance on multimodal benchmarks.
 * ***[10/19/2023]*** Our SOTA model Co-DETR w/ ViT-L is released now. Please refer to [our huggingface page](https://huggingface.co/zongzhuofan) for more details.
 * ***[09/10/2023]*** We release LVIS inference configs and a stronger LVIS detector that achieves **64.5 box AP**.
@@ -42,8 +43,9 @@ In this paper, we present a novel collaborative hybrid assignments training sche
 | Model  | Backbone | Aug | Dataset | box AP (val) | mask AP (val) | box AP (test) | mask AP (test) | Config | Download |
 | ------ | -------- | --- | ------- | ------------ | ------------- | ------ | ------------- | ------ | ----- |
 | Co-DINO | Swin-L | DETR | COCO | 64.1 | - | - | - | [config](https://github.com/Sense-X/Co-DETR/blob/main/projects/configs/co_dino/co_dino_5scale_swin_large_16e_o365tococo.py) | [model](https://drive.google.com/drive/folders/1nAXOkzqrEgz-YnXxIEs4d5j9li_kmrnv?usp=sharing) |
-| Co-DINO | ViT-L | DETR | COCO | 65.9 | - | 66.0 | - | [config](https://github.com/Sense-X/Co-DETR/blob/main/projects/configs/co_dino_vit/co_dino_5scale_vit_large_coco.py) | [model](https://huggingface.co/zongzhuofan) |
 | Co-DINO | Swin-L | LSJ | LVIS | 64.5 | - | - | - | [config (test)](https://github.com/Sense-X/Co-DETR/blob/main/projects/configs/co_dino/co_dino_5scale_lsj_swin_large_16e_o365tolvis.py) | [model](https://drive.google.com/drive/folders/1nAXOkzqrEgz-YnXxIEs4d5j9li_kmrnv?usp=sharing) |
+| Co-DINO | ViT-L | DETR | Objects365 | - | - | - | - | config | [model](https://huggingface.co/zongzhuofan) |
+| Co-DINO | ViT-L | DETR | COCO | 65.9 | - | 66.0 | - | [config](https://github.com/Sense-X/Co-DETR/blob/main/projects/configs/co_dino_vit/co_dino_5scale_vit_large_coco.py) | [model](https://huggingface.co/zongzhuofan) |
 | Co-DINO | ViT-L | LSJ | LVIS | 68.0 | - | - | - | [config (test)](https://github.com/Sense-X/Co-DETR/blob/main/projects/configs/co_dino_vit/co_dino_5scale_lsj_vit_large_lvis.py) | [model](https://huggingface.co/zongzhuofan) |
 | Co-DINO-Inst | ViT-L | LSJ | LVIS | 67.3 | 60.7 | - | - | [config (test)](https://github.com/Sense-X/Co-DETR/blob/main/projects/configs/co_dino_vit/co_dino_5scale_lsj_vit_large_lvis_instance.py) | [model](https://huggingface.co/zongzhuofan) |
 
